@@ -1,3 +1,4 @@
+rc-service mariadb start
 mysql -uroot -e "CREATE DATABASE wordpress;"
 mysql -uroot -e "CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'admin'@'localhost';"

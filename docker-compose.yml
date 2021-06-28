@@ -13,3 +13,7 @@ services:
     build: phpmyadmin/
     ports:
       - "5000:5000"
+  mariadb:
+    build: Mariadb/
+    ports: 
+      - "3000:3000"
