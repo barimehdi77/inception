@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  nginx:
+    build: nginx/
+    ports:
+      - "80:80"
+      - "443:443"
+  wordpress:
+    build: wordpress/
+    ports:
+      - "5050:5050"
+  phpmyadmin:
+    build: phpmyadmin/
+    ports:
+      - "5000:5000"
