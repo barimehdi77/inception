@@ -1,0 +1,54 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    container_name: mariadb
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: testadmin
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    restart: always
+    networks:
+      - wpsite
+  wordpress:
+    build: wordpress/
+    volumes:
+      - www-data:/var/www/html
+    container_name: wordpress
+    depends_on:
+      - db
+    ports: ['9000:9000']
+    environment:
+      WORDPRESS_DB_HOST: db
+      MYSQL_ROOT_PASSWORD: mysql_root_pass
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: admin
+      WORDPRESS_TABLE_PREFIX: wp_table
+    networks:
+      - wpsite
+    restart: always
+  nginx:
+    build: nginx/
+    image: mynginx:mytest
+    container_name: my_nginx
+    volumes:
+      - www-data:/var/www/html
+    ports:
+      - 443:443
+    depends_on:
+      - wordpress
+      - db
+    networks:
+      - wpsite
+
+networks:
+  wpsite:
+volumes:
+  db-data:
+  www-data:
