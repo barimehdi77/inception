@@ -1,19 +1,39 @@
-version: "3.9"
+version: "3"
+
 services:
-  nginx:
-    build: nginx/
-    ports:
-      - "80:80"
-      - "443:443"
-  wordpress:
-    build: wordpress/
-    ports:
-      - "5050:5050"
-  phpmyadmin:
-    build: phpmyadmin/
-    ports:
-      - "5000:5000"
-  mariadb:
-    build: Mariadb/
-    ports: 
-      - "3000:3000"
+    nginx:
+        build: nginx/
+        ports:
+            - "80:80"
+            - "443:443"
+        container_name: nginx
+        networks:
+            - wp-site
+    wordpress:
+        build: wordpress/
+        ports:
+            - "5050:5050"
+        container_name: wordpress
+        depends_on:
+            - nginx
+        networks:
+            - wp-site
+    # phpmyadmin:
+    #     build: phpMyAdmin/
+    #     ports:
+    #         - "5000:5000"
+    #     container_name: phpmyadmin
+    #     depends_on:
+    #         - mariadb
+    #         - nginx
+    # mariadb:
+    #     build: mariadb/
+    #     ports:
+    #         - "3000:3000"
+    #     container_name: mariadb
+    #     networks:
+    #         - wp-site
+
+networks:
+    wp-site:
+        driver : bridge
