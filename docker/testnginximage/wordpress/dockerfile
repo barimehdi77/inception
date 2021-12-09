@@ -24,9 +24,9 @@ ADD src/run.sh .
 
 COPY src ./tmp/
 # RUN sh tmp/wp-setup.sh
-RUN chmod +x /run.sh
+RUN chmod +x ./run.sh
 
 EXPOSE 9000
 
-ENTRYPOINT [ "/run.sh" ]
+ENTRYPOINT [ "./run.sh" ]
 # CMD ["php-fpm7", "-F"]
