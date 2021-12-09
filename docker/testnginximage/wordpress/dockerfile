@@ -23,6 +23,7 @@ RUN touch /run/openrc/softlevel
 ADD src/run.sh .
 
 COPY src ./tmp/
+COPY src/www.conf /etc/php7/php-fpm.d
 # RUN sh tmp/wp-setup.sh
 RUN chmod +x ./run.sh
 

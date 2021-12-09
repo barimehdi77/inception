@@ -1,6 +1,7 @@
 version: '3'
 services:
   db:
+    # user: "101304:500"
     image: mysql:5.7
     container_name: mariadb
     volumes:
@@ -16,12 +17,13 @@ services:
     networks:
       - wpsite
   wordpress:
+    # user: "101304:500"
     build: wordpress/
     volumes:
       - www-data:/var/www/html
     container_name: wordpress
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
     ports: ['9000:9000']
     environment:
       WORDPRESS_DB_HOST: db
@@ -34,6 +36,7 @@ services:
       - wpsite
     restart: always
   nginx:
+    # user: "101304:500"
     build: nginx/
     image: mynginx:mytest
     container_name: my_nginx
@@ -51,4 +54,12 @@ networks:
   wpsite:
 volumes:
   db-data:
+    driver_opts:
+      type: none
+      device: /home/mbari/data/db-data #NOTE needs full path (~ doesn't work)
+      o: bind
   www-data:
+    driver_opts:
+      type: none
+      device: /home/mbari/data/www-data #NOTE needs full path (~ doesn't work)
+      o: bind
