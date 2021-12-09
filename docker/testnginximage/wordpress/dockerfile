@@ -10,24 +10,24 @@ RUN apk add php7-common php7-iconv php7-json php7-gd php7-curl php7-xml \
 # RUN addgroup -S nginx && adduser -S nginx -h /bin/bash -h /var/www/ -h /tmp -G nginx
 
 
-RUN mkdir -p /var/www/html
-WORKDIR /var/www/html/
+# RUN mkdir -p /var/www/html
+# WORKDIR /var/www/html/
 # RUN cd /tmp
 RUN wget https://wordpress.org/latest.tar.gz
 RUN tar xvf latest.tar.gz
 RUN rm latest.tar.gz
 # RUN mv /tmp/wp-config.php /var/www/html/wordpress/wp-config.php
-COPY src/wp-config.php /tmp/wp-config.php
+COPY src/wp-config.php /wordpress/wp-config.php
 RUN openrc
 RUN touch /run/openrc/softlevel
-ADD src/run.sh .
+COPY src/run.sh /
 
-COPY src ./tmp/
+# COPY src ./tmp/
 COPY src/www.conf /etc/php7/php-fpm.d
 # RUN sh tmp/wp-setup.sh
 RUN chmod +x ./run.sh
 
-EXPOSE 9000
+# EXPOSE 9000
 
 ENTRYPOINT [ "./run.sh" ]
 # CMD ["php-fpm7", "-F"]
