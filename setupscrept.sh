@@ -115,9 +115,6 @@ then
   fi
   sudo usermod -aG docker $USER
   sudo service docker restart
-  echo -e "${RED}╔════════════════════════════║NOTE:║════════════════════════╗${RESET}"
-  echo -e "${RED}║   ${BLUE} Please Restart Your machine To apply Those changes!${RED}   ║${RESET}"
-  echo -e "${RED}╚═══════════════════════════════════════════════════════════╝${RESET}"
 fi
 if [ "$dc" = 'y' ]
 then
@@ -130,4 +127,11 @@ then
   else
     echo "${BLUE}docker-compose${RED} already Installed${RESET}"
   fi
+fi
+
+if [ "$dsudo" == 'y' ]
+then
+  echo -e "${RED}╔════════════════════════════║NOTE:║════════════════════════╗${RESET}"
+  echo -e "${RED}║   ${BLUE} Please Restart Your machine To apply Those changes!${RED}    ║${RESET}"
+  echo -e "${RED}╚═══════════════════════════════════════════════════════════╝${RESET}"
 fi
