@@ -1,7 +1,6 @@
 version: '3'
 services:
   mariadb:
-    # user: "101304:500"
     build:  mariadb/
     container_name: mariadb
     volumes:
@@ -14,8 +13,9 @@ services:
     restart: always
     networks:
       - wpsite
+    env_file:
+      - .env
   wordpress:
-    # user: "101304:500"
     build: wordpress/
     image: wordpress
     volumes:
@@ -23,8 +23,8 @@ services:
     container_name: wordpress
     depends_on:
       - mariadb
-    # env_file:
-    #   - .env
+    env_file:
+      - .env
     environment:
       WORDPRESS_DB_HOST: mariadb
       MYSQL_ROOT_PASSWORD: mysql_root_pass
@@ -36,7 +36,6 @@ services:
       - wpsite
     restart: always
   nginx:
-    # user: "101304:500"
     build: nginx/
     image: nginx
     container_name: nginx
