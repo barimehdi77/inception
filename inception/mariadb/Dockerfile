@@ -4,7 +4,6 @@ RUN apk update
 RUN apk add mariadb mariadb-common mariadb-client openrc
 
 COPY src ./tmp/
-# RUN mkdir -p /var/www/localhost/htdocs
 
 RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
 
@@ -18,4 +17,4 @@ ADD src/run.sh .
 RUN chmod +x /run.sh
 
 
-ENTRYPOINT [ "/run.sh" ]
+ENTRYPOINT [ "./run.sh" ]

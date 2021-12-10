@@ -2,7 +2,7 @@ version: '3'
 services:
   mariadb:
     # user: "101304:500"
-    image: mysql:5.7
+    build:  mariadb/
     container_name: mariadb
     volumes:
       - db-data:/var/lib/mysql
