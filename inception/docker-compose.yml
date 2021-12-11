@@ -55,10 +55,10 @@ volumes:
   db-data:
     driver_opts:
       type: none
-      device: /home/mbari/data/db-data #NOTE needs full path (~ doesn't work)
+      device: /home/mbari/data/db-data
       o: bind
   www-data:
     driver_opts:
       type: none
-      device: /home/mbari/data/www-data #NOTE needs full path (~ doesn't work)
+      device: /home/mbari/data/www-data
       o: bind
