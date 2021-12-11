@@ -23,6 +23,7 @@ echo -e
 
 read -p "${GREEN}Do you want to ${RED}Update Your System?${GREEN}:${YELLOW} [y/N]${RESET}" update
 read -p "${GREEN}Do you want to ${RED}Install git?${GREEN}:${YELLOW} [y/N]${RESET}" git
+read -p "${GREEN}Do you want to ${RED}Install zsh?${GREEN}:${YELLOW} [y/N]${RESET}" zsh
 read -p "${GREEN}Do you want to ${RED}Install openssh?${GREEN}:${YELLOW} [y/N]${RESET}" os
 read -p "${GREEN}Do you want to ${RED}Install curl?${GREEN}:${YELLOW} [y/N]${RESET}" curl
 read -p "${GREEN}Do you want to ${RED}Install lsb-release?${GREEN}:${YELLOW} [y/N]${RESET}" lsb
@@ -39,6 +40,7 @@ echo -e
 echo -e
 echo -e
 echo -e
+
 sleep 2
 
 
@@ -56,6 +58,18 @@ then
       sudo apt install openssh-server -y
   else
     echo "${BLUE}openssh${RED} already Installed${RESET}"
+  fi
+fi
+if [ "$zsh" = 'y' ]
+then
+  if ! [ -x "$(command -v zsh)" ]
+  then
+      echo "${GREEN}Installing ${BLUE}zsh${RESET}"
+      sudo apt install zsh -y
+      sudo apt install git-core curl fonts-powerline -y
+      sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  else
+    echo "${BLUE}zsh${RED} already Installed${RESET}"
   fi
 fi
 if [ "$git" = 'y' ]
