@@ -6,15 +6,15 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: testadmin
+      MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: wordpress
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
     restart: always
     networks:
       - wpsite
-    env_file:
-      - .env
+    # env_file:
+    #   - .env
   wordpress:
     build: wordpress/
     image: wordpress
@@ -23,11 +23,11 @@ services:
     container_name: wordpress
     depends_on:
       - mariadb
-    env_file:
-      - .env
+    # env_file:
+    #   - .env
     environment:
       WORDPRESS_DB_HOST: mariadb
-      MYSQL_ROOT_PASSWORD: mysql_root_pass
+      MYSQL_ROOT_PASSWORD: admin
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_USER: admin
       WORDPRESS_DB_PASSWORD: admin
@@ -45,7 +45,6 @@ services:
       - 443:443
     depends_on:
       - wordpress
-      - mariadb
     networks:
       - wpsite
 

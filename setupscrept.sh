@@ -24,6 +24,7 @@ echo -e
 read -p "${GREEN}Do you want to ${RED}Update Your System?${GREEN}:${YELLOW} [y/N]${RESET}" update
 read -p "${GREEN}Do you want to ${RED}Install git?${GREEN}:${YELLOW} [y/N]${RESET}" git
 read -p "${GREEN}Do you want to ${RED}Install zsh?${GREEN}:${YELLOW} [y/N]${RESET}" zsh
+read -p "${GREEN}Do you want to ${RED}Install vim?${GREEN}:${YELLOW} [y/N]${RESET}" vim
 read -p "${GREEN}Do you want to ${RED}Install openssh?${GREEN}:${YELLOW} [y/N]${RESET}" os
 read -p "${GREEN}Do you want to ${RED}Install curl?${GREEN}:${YELLOW} [y/N]${RESET}" curl
 read -p "${GREEN}Do you want to ${RED}Install lsb-release?${GREEN}:${YELLOW} [y/N]${RESET}" lsb
@@ -80,6 +81,16 @@ then
     sudo apt install git -y
   else
     echo "${BLUE}git${RED} already Installed${RESET}"
+  fi
+fi
+if [ "$vim" = 'y' ]
+then
+  if ! [ -x "$(command -v vim)" ]
+  then
+    echo "${GREEN}Installing ${BLUE}vim${RESET}"
+    sudo apt install vim -y
+  else
+    echo "${BLUE}vim${RED} already Installed${RESET}"
   fi
 fi
 if [ "$curl" = 'y' ]
