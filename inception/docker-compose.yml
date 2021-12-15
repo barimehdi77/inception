@@ -47,6 +47,17 @@ services:
       - wordpress
     networks:
       - wpsite
+  adminer:
+    build: adminer/
+    image: adminer
+    container_name: adminer
+    volumes:
+      - www-data:/var/www/html/wordpress
+    depends_on:
+      - nginx
+    networks:
+      - wpsite
+
 
 networks:
   wpsite:
