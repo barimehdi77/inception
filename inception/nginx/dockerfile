@@ -5,7 +5,7 @@ RUN apk add nginx openrc vim openssl
 RUN mkdir -p /var/www/html/
 RUN chown -R nginx:nginx /var/lib/nginx
 RUN chown -R nginx:nginx /var/www/html
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/C=MA/ST=Khouribga/L=Khouribga/O=1337/CN=ft_services"
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/C=MA/ST=Khouribga/L=Khouribga/O=1337/CN=Inception"
 COPY ./src/nginx.conf /etc/nginx/
 RUN openrc
 RUN touch /run/openrc/softlevel

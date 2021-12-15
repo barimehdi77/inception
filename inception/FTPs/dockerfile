@@ -1,0 +1,10 @@
+FROM alpine:3.12.0
+RUN apk update
+RUN apk add vsftpd openrc vim openssl lftp
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/FTPs.key -out /etc/ssl/certs/FRPs.crt -subj "/C=MA/ST=Khouribga/L=Khouribga/O=1337/CN=Inception"
+RUN openrc
+RUN touch /run/openrc/softlevel
+COPY src/run.sh /
+COPY src/vsftpd.conf /etc/vsftpd.conf
+RUN chmod +x ./run.sh
+ENTRYPOINT [ "/run.sh" ]

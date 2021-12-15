@@ -11,7 +11,7 @@ RUN mkdir -p /var/www/localhost/htdocs
 
 RUN cp /tmp/index.html /var/www/localhost/htdocs/
 
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/C=MA/ST=Khouribga/L=Khouribga/O=1337/CN=ft_services"
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/C=MA/ST=Khouribga/L=Khouribga/O=1337/CN=Inception"
 
 RUN mv /tmp/default.conf /etc/nginx/conf.d/
 RUN openrc
