@@ -51,8 +51,8 @@ services:
     build: adminer/
     image: adminer
     container_name: adminer
-    volumes:
-      - www-data:/var/www/html/wordpress
+    ports:
+      - 5000:5000
     depends_on:
       - nginx
     networks:
