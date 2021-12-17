@@ -47,6 +47,20 @@ services:
       - wordpress
     networks:
       - wpsite
+  ftps:
+    build: ftps/
+    image: ftps
+    container_name: ftps
+    volumes:
+      - www-data:/home/mbari
+    ports:
+      - 21:21
+      - 10100:10100
+    # environment:
+    #   FTP_USERNAME: mbari
+    #   FTP_PASSWORD: ftpsmbari
+    networks:
+      - wpsite
   adminer:
     build: adminer/
     image: adminer

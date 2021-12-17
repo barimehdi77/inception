@@ -15,8 +15,8 @@ then
 	echo "CREATE USER 'mbari'@'%' IDENTIFIED BY 'fatine';" | mysql -u root
 	echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'mbari'@'%' IDENTIFIED BY 'fatine';" | mysql -u root
 	echo "FLUSH PRIVILEGES;" | mysql -u root
-	echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'fatinezin'" | mysql -u root
-    echo "FLUSH PRIVILEGES;" | mysql -u root
+	echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'fatine'" | mysql -u root
+    echo "FLUSH PRIVILEGES;" | mysql -u root -p'fatine';
 fi
 sed -i 's/skip-networking/# skip-networking/g' /etc/my.cnf.d/mariadb-server.cnf
 rc-service mariadb restart
