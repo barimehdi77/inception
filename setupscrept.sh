@@ -25,6 +25,7 @@ read -p "${GREEN}Do you want to ${RED}Update Your System?${GREEN}:${YELLOW} [y/N
 read -p "${GREEN}Do you want to ${RED}Install git?${GREEN}:${YELLOW} [y/N]${RESET}" git
 read -p "${GREEN}Do you want to ${RED}Install zsh?${GREEN}:${YELLOW} [y/N]${RESET}" zsh
 read -p "${GREEN}Do you want to ${RED}Install vim?${GREEN}:${YELLOW} [y/N]${RESET}" vim
+read -p "${GREEN}Do you want to ${RED}Install FileZilla?${GREEN}:${YELLOW} [y/N]${RESET}" file
 read -p "${GREEN}Do you want to ${RED}Install openssh?${GREEN}:${YELLOW} [y/N]${RESET}" os
 read -p "${GREEN}Do you want to ${RED}Install curl?${GREEN}:${YELLOW} [y/N]${RESET}" curl
 read -p "${GREEN}Do you want to ${RED}Install lsb-release?${GREEN}:${YELLOW} [y/N]${RESET}" lsb
@@ -91,6 +92,16 @@ then
     sudo apt install vim -y
   else
     echo "${BLUE}vim${RED} already Installed${RESET}"
+  fi
+fi
+if [ "$file" = 'y' ]
+then
+  if ! [ -x "$(command -v filezilla)" ]
+  then
+    echo "${GREEN}Installing ${BLUE}FileZilla${RESET}"
+    sudo apt install filezilla -y
+  else
+    echo "${BLUE}FileZilla${RED} already Installed${RESET}"
   fi
 fi
 if [ "$curl" = 'y' ]
