@@ -5,7 +5,7 @@ then
 	/etc/init.d/mariadb setup
 	rc-service mariadb start
 
-	mysql -u root < wp.sql
+	mysql -u root < wordpress.sql
 
 	echo "CREATE USER 'mbari'@'localhost' IDENTIFIED BY 'fatine';" | mysql -u root
 	# echo "CREATE DATABASE wordpress;" | mysql -u root

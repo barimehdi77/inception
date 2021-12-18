@@ -18,6 +18,13 @@
  * @package WordPress
  */
 
+define('NONCE_SALT', 'DarkSide77');
+
+define('WP_CACHE', true);
+
+define('WP_REDIS_HOST', 'redis');
+define('WP_CACHE_KEY_SALT', 'mbari.42.fr');
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'wordpress' );
