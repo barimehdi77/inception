@@ -23,20 +23,20 @@ define('NONCE_SALT', 'DarkSide77');
 define('WP_CACHE', true);
 
 define('WP_REDIS_HOST', 'redis');
-define('WP_CACHE_KEY_SALT', 'mbari.42.fr');
+define('WP_CACHE_KEY_SALT', 'DOMAIN_NAME');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wordpress' );
+define( 'DB_NAME', 'DATABASE_NAME' );
 
 /** MySQL database username */
-define( 'DB_USER', 'mbari' );
+define( 'DB_USER', 'DATABASE_USER' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'fatine' );
+define( 'DB_PASSWORD', 'DATABASE_PASS' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'mariadb' );
+define( 'DB_HOST', 'DATABASE_HOST' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );

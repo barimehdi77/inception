@@ -1,21 +1,18 @@
 version: '3'
 services:
+
   mariadb:
     build:  mariadb/
     image: mariadb
     container_name: mariadb
     volumes:
       - db-data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
     restart: always
     networks:
       - wpsite
-    # env_file:
-    #   - .env
+    env_file:
+      - .env
+
   wordpress:
     build: wordpress/
     image: wordpress
@@ -24,16 +21,12 @@ services:
     container_name: wordpress
     depends_on:
       - mariadb
-    environment:
-      WORDPRESS_DB_HOST: mariadb
-      MYSQL_ROOT_PASSWORD: admin
-      WORDPRESS_DB_NAME: wordpress
-      WORDPRESS_DB_USER: admin
-      WORDPRESS_DB_PASSWORD: admin
-      WORDPRESS_TABLE_PREFIX: wp_table
     networks:
       - wpsite
     restart: always
+    env_file:
+      - .env
+
   nginx:
     build: nginx/
     image: nginx
@@ -47,6 +40,9 @@ services:
     networks:
       - wpsite
     restart: always
+    env_file:
+      - .env
+
   ftps:
     build: ftps/
     image: ftps
@@ -59,20 +55,21 @@ services:
     networks:
       - wpsite
     restart: always
-    # environment:
-    #   FTP_USERNAME: mbari
-    #   FTP_PASSWORD: ftpsmbari
+    env_file:
+      - .env
+
   adminer:
     build: adminer/
     image: adminer
     container_name: adminer
     ports:
-      - 5000:5000
+      - 7077:7077
     depends_on:
       - nginx
     networks:
       - wpsite
     restart: always
+
   redis:
     build: redis/
     image: redis
@@ -84,6 +81,9 @@ services:
     networks:
       - wpsite
     restart: always
+    env_file:
+      - .env
+
   backup:
     container_name: backup
     build: backup/
@@ -96,6 +96,8 @@ services:
       - db-data:/db-data
       - backup-data:/backup
     restart: always
+    env_file:
+      - .env
 
   website:
     container_name: website
@@ -106,6 +108,8 @@ services:
     ports:
       - "7777:7777"
     restart: always
+    env_file:
+      - .env
 
 networks:
   wpsite:

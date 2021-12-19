@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 mkdir -p $HOME/data/db-data
 mkdir -p $HOME/data/www-data
 mkdir -p $HOME/data/backup-data
