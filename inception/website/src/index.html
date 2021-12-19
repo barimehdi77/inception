@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ayoub Mouloua</title>
+	<style>
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed, 
+		figure, figcaption, footer, header, hgroup, 
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		/* HTML5 display-role reset for older browsers */
+		article, aside, details, figcaption, figure, 
+		footer, header, hgroup, menu, nav, section {
+			display: block;
+		}
+		a{
+			text-decoration: none;
+			text-transform: none;
+			color: #4A90E2;
+		}
+
+		body {
+			line-height: 1;
+			font-family: lato, ubuntu,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+			text-rendering : optimizeLegibility;
+			-webkit-font-smoothing : antialiased;
+			font-size: 19px;
+			background-color: #FEFEFE;
+			color: #04143A;
+		}
+		ol, ul {
+			list-style: none;
+		}
+		blockquote, q {
+			quotes: none;
+		}
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+			content: '';
+			content: none;
+		}
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+		p {
+			color: #15171a;
+			font-size: 17;
+			line-height: 31px;
+		}
+
+		strong {
+			font-weight: 600;
+		}
+
+		div , footer {
+			box-sizing: border-box;
+		}
+
+		/* Reset ends */
+
+
+		/*Hero section*/
+
+		.container {
+			max-width: 1100px;
+			height: auto;
+			margin: 60px auto;
+		}
+
+		.hero {
+			margin: 50px auto; 
+			position: relative;
+		}
+
+		h1.name {
+			font-size: 70px;
+			font-weight: 300;
+			display: inline-block;
+		}
+
+		.creater {
+			vertical-align: top;
+			background-color: #D9E7F8;
+			color: #4A90E2;
+			font-weight: 600;
+			margin-top: 10px;
+			margin-left: 20px;
+			border-radius: 5px;
+			display: inline-block;
+			padding: 15px 25px;
+		}
+
+		.email {
+			display: block;
+			font-size: 24px;
+			font-weight: 300;
+			color: #81899C;
+			margin-top: 10px;
+		}
+
+		.lead {
+			font-size: 20px;
+			font-weight: 300;
+			margin-top: 20px;
+			line-height: 40px;
+		}
+
+		/*hero ends*/
+
+		/*skills & intrests*/
+
+		.sections {
+			vertical-align: top;
+			display: inline-block;
+			width: 49.7%;
+			height: 50px;
+		}
+
+		.section-title {
+			font-size: 20px;
+			font-weight: 600;
+			margin-bottom: 15px;
+		}
+
+		.section-title2 {
+			font-size: 20px;
+			font-weight: 600;
+			margin-bottom: 47px;
+		}
+
+		.list-card {
+			margin: 30px 0;
+		}
+
+		.list-card .exp , .list-card div{
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.list-card .exp {
+			margin-right: 15px;
+			color: #4A90E2;
+			font-weight: 600;
+			width: 100px;
+		}
+
+		.list-card div {
+			width: 70%;
+		}
+
+		.list-card h3 {
+			font-size: 20px;
+			font-weight: 600;
+			color: #5B6A9A;
+			line-height: 26px;
+			margin-bottom: 8px;
+		}
+
+		.list-card div span {
+			font-size: 16px;
+			color: #81899C;
+			line-height: 22px;
+		}
+
+		/*skill and intrests ends*/
+
+		/* Achievements */
+
+
+		.cards {
+			max-width: 1120px;
+			display: block;
+			margin-top: 280px;
+		}
+
+		.card {
+			width: 47.9%;
+			height: 200px;
+			background-color: #EEF0F7;
+			display: inline-block;
+			margin: 7px 5px;
+			vertical-align: top;
+			border-radius: 10px;
+			text-align: center;
+			padding-top: 50px
+		}
+
+		.card-active , .card:hover{
+			transform: scale(1.02);
+			transition: 0.5s;
+			background-color: #fff;
+			box-shadow: 0px 5px 50px -8px #ddd;
+			cursor: pointer;
+		}
+
+
+		.skill-level {
+			display: inline-block;
+			max-width: 160px;
+		}
+
+		.skill-level span {
+			font-size: 35px;
+			font-weight: 300;
+			color: #5B6A9A;
+			vertical-align: top;
+		}
+
+		.skill-level h2 {
+			font-size: 95px;
+			font-weight: 300;
+			display: inline-block;
+			vertical-align: top;
+			color: #5B6A9A;
+			letter-spacing: -5px;
+		}
+
+		.skill-meta {
+			vertical-align: top;
+			display: inline-block;
+			max-width: 300px;
+			text-align: left;
+			margin-top: 15px;
+			margin-left: 15px;
+		}
+
+		.skill-meta h3 {
+			font-size: 20px;
+			font-weight: 800;
+			color: #5B6A9A;
+			margin-bottom: 5px;
+		}
+
+		.skill-meta span{
+			color: #81899C;
+			line-height: 20px;
+			font-size: 16px;
+		}
+
+		/* Achievements ends */
+
+
+
+		/* Timeline styles*/
+
+
+		ol {
+			position: relative;
+			display: block;
+			margin: 100px 0;
+			height: 2px;
+			background: #EEF0F7;
+
+		}
+		ol::before,
+		ol::after {
+			content: "";
+			position: absolute;
+			top: -10px;
+			display: block;
+			width: 0;
+			height: 0;
+			border-radius: 10px;
+			border: 0px solid #31708F;
+		}
+		ol::before {
+			left: -5px;
+		}
+		ol::after {
+			right: -10px;
+			border: 0px solid transparent;
+			border-right: 0;
+			border-left: 20px solid #31708F;
+			border-radius: 3px;
+		}
+
+		/* ---- Timeline elements ---- */
+		li {
+			position: relative;
+			display: inline-block;
+			float: left;
+			width: 25%;
+			height: 50px;
+		}
+		li .line {
+		position: absolute;
+		top: -47px;
+		left: 1%;
+		font-size: 20px;
+		font-weight: 600;
+		color: #04143A;
+		}
+		li .point {
+			content: "";
+			top: -7px;
+			left: 0%;
+			display: block;
+			width: 8px;
+			height: 8px;
+			border: 4px solid #fff;
+			border-radius: 10px;
+			background: #4A90E2;
+		position: absolute;
+		}
+		li .description {
+		display: none;
+		padding: 10px 0;
+		margin-top: 20px;
+		position: relative;
+		font-weight: normal;
+		z-index: 1;
+		max-width: 95%;
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 25px;
+		color: #5B6A9A;
+		}
+		.description::before {
+		content: '';
+		width: 0; 
+		height: 0; 
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 5px solid #f4f4f4;
+		position: absolute;
+		top: -5px;
+		left: 43%;
+		}
+
+
+		.timeline .date{
+			font-size: 14px;
+			color: #81899C;
+			font-weight: 300;
+		}
+
+		/* ---- Hover effects ---- */
+		li:hover {
+		color: #48A4D2;
+		}
+		li .description {
+		display: block;
+		}
+
+		/*timeline ends*/
+
+
+
+		/* Media queries*/
+
+		@media(max-width: 1024px){
+			.container {
+				padding: 15px;
+				margin: 0px auto;
+			}
+			.cards {
+				margin-top: 250px;
+			}
+		}
+
+		@media(max-width: 768px){
+			.container {
+				padding: 15px;
+				margin: 0px auto;
+			}
+			.cards {
+				margin-top: 320px;
+			}
+
+			.card {
+				padding: 15px;
+				text-align: left;
+			}
+			.card h2 {
+				font-size: 70px;
+			}
+				.card , .sections {
+				width: 100%;
+				height: auto;
+				margin: 10px 0;
+				float: left;
+			}
+
+			.timeline{
+				border: none;
+				background-color: rgba(0,0,0,0);
+			}
+
+			.timeline li{
+				margin-top: 70px;
+				height: 150px;
+			}
+		}
+
+
+		@media(max-width: 425px) {
+			h1.name {
+				font-size: 40px;
+			}
+
+			.card , .sections {
+				width: 100%;
+				height: auto;
+				margin: 10px 0;
+				float: left;
+			}
+
+			.timeline{
+				display: none;
+				}
+
+			.creater {
+				position: absolute;
+				font-size: 15px;
+				top: -40px;
+				right: 20px;
+				padding: 10px
+			}
+
+			.lead {
+				margin-top: 15px;
+				font-size: 20px;
+				line-height: 28px;
+			}
+			.container {
+				margin: 0px;
+				padding: 0 15px;
+			}
+			footer {
+				margin-top: 2050px;
+			}
+			}
+
+		.social-menu ul{
+			position: absolute;
+			top: 180%;
+			left: 50%;
+			padding: 0;
+			margin: 0;
+			transform: translate(-50%, -50%);
+			display: flex;
+		}
+
+		.social-menu ul li{
+			list-style: none;
+			margin: 0 15px;
+		}
+
+		.social-menu ul li .fab{
+			font-size: 30px;
+			line-height: 60px;
+			transition: .3s;
+			color: #000;
+		}
+
+		.social-menu ul li .fab:hover{
+			color: #fff;
+		}
+
+		.social-menu ul li a{
+			position: relative;
+			display: block;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			background-color: #fff;
+			text-align: center;
+			transition: .6s;
+			box-shadow: 0 5px 4px rgba(0,0,0,.5);
+		}
+
+		.social-menu ul li a:hover{
+			transform: translate(0, -10%);
+		}
+
+		.social-menu ul li:nth-child(1) a:hover{
+			background-color: rgba(0, 0, 0, 0.829);
+		}
+		.social-menu ul li:nth-child(2) a:hover{
+			background-color: #0077b5;
+		}
+		.social-menu ul li:nth-child(4) a:hover{
+			background-color: #000;
+		}
+	</style>
+	<!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="hero">
+			<h1 class="name"><strong>Inception</strong>_42</h1>
+			<span class="creater">Created By Bari Mehdi</span>
+			<span class="email">mbari@student.1337.ma</span>
+
+			<h2 class="lead">This project aims to broaden my knowledge of system administration by using Docker.
+				I will virtualize several Docker images, creating them in my new personal virtual
+				machine.</h2>
+		</div>
+	</div>
+
+<!-- Skills and intrest section -->
+	<div class="container">
+
+		<div class="sections">
+			<h2 class="section-title">In This Project</h2>
+
+			<div class="list-card">
+				<span class="exp">Wordpress</span>
+				<div>
+					<h3>WordPress Container</h3>
+					<span>A Docker container that contains WordPress + php-fpm only without nginx</span>
+				</div>
+			</div>
+			
+			<div class="list-card">
+				<span class="exp">Nginx</span>
+				<div>
+					<h3>Nginx Container</h3>
+					<span>A Docker container that contains NGINX with TLSv1.2 or TLSv1.3 only.</span>
+				</div>
+			</div>	
+					
+			<div class="list-card">
+				<span class="exp">Mariadb</span>
+				<div>
+					<h3>Mariadb Container</h3>
+					<span>A Docker container that contains MariaDB only without nginx.</span>
+				</div>
+			</div>	
+			
+
+		</div>
+		<div class="sections">
+				<h2 class="section-title2"></h2>
+				
+				<div class="list-card">
+					<span class="exp">Redis Caches</span>
+					<div>
+						<h3>Redis Cache Container</h3>
+						<span>A redis cache for your WordPress website in order to properly manage the
+							cache.</span>
+					</div>
+				</div>
+				
+				<div class="list-card">
+                    <span class="exp">Adminer</span>
+					<div>
+						<h3>Adminer Container</h3>
+						<span>A Docker container that contains Adminer runnig on port 1077.</span>
+					</div>
+				</div>	
+
+				<div class="list-card">
+                    <span class="exp">Backup server</span>
+					<div>
+						<h3>Backup server Container</h3>
+						<span>A Docker container that contains Backup server for every 7 minutes for mariadb database...</span>
+					</div>
+				</div>	
+				
+		</div>
+	</div>
+
+
+	<!-- Achievements -->
+
+	<div class="container cards" style="padding-top: 40px;">
+		
+		<div class="card">
+			<div class="skill-level">
+				<span>+</span>
+				<h2>20</h2>
+			</div>
+
+			<div class="skill-meta">
+				<h3>Projects</h3>
+				<span>Finished projects and earn skills about Cybersecurity, Networks, Programming and more</span>
+			</div>
+		</div>
+
+			
+		<div class="card">
+			<div class="skill-level">
+				<h2>40</h2>
+				<span>%</span>
+			</div>
+
+			<div class="skill-meta">
+				<h3>Cybersecurity</h3>
+				<span>internal & external audit, discover vulnerabilities, and fix them</span>
+			</div>
+		</div>
+
+			
+		<div class="card">
+			<div class="skill-level">
+				<h2>30</h2>
+				<span>%</span>
+			</div>
+
+			<div class="skill-meta">
+				<h3>Technical solutions</h3>
+				<span>Such as web services, scripts, configurations</span>
+			</div>
+		</div>
+
+
+		<div class="card">
+			<div class="skill-level">
+				<h2>30</h2>
+				<span>%</span>
+			</div>
+
+			<div class="skill-meta">
+				<h3>Web</h3>
+				<span>Applications development integrating third-party services</span>
+			</div>
+		</div>
+
+	</div>
+
+	

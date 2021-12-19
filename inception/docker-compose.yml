@@ -84,7 +84,28 @@ services:
     networks:
       - wpsite
     restart: always
+  backup:
+    container_name: backup
+    build: backup/
+    image: backup
+    networks:
+      - wpsite
+    depends_on:
+      - mariadb
+    volumes:
+      - db-data:/db-data
+      - backup-data:/backup
+    restart: always
 
+  website:
+    container_name: website
+    build: website/
+    image: website
+    networks:
+      - wpsite
+    ports:
+      - "7777:7777"
+    restart: always
 
 networks:
   wpsite:
@@ -98,4 +119,9 @@ volumes:
     driver_opts:
       type: none
       device: /home/mbari/data/www-data
+      o: bind
+  backup-data:
+    driver_opts:
+      type: none
+      device: /home/mbari/data/backup-data
       o: bind

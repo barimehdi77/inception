@@ -1,0 +1,9 @@
+FROM alpine:3.14.2
+
+RUN apk update
+RUN mkdir /backup
+
+ADD ./src/run.sh /usr/bin/run.sh
+RUN chmod +x /usr/bin/run.sh
+
+ENTRYPOINT /usr/bin/run.sh

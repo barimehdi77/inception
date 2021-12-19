@@ -1,0 +1,9 @@
+FROM alpine:3.14.2
+
+RUN apk update
+RUN apk add --update nodejs npm
+
+ADD ./src/index.html .
+ADD ./src/site.js .
+
+CMD node site.js

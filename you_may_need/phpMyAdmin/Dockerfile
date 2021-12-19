@@ -9,7 +9,7 @@ RUN apk add phpmyadmin php7-fpm
 # php-mbstring don't forget this
 
 COPY src ./tmp/
-RUN mkdir -p /var/www/localhost/htdocs
+RUN mkdir -p /var/www/html/
 RUN mv /tmp/default.conf /etc/nginx/conf.d/
 RUN openrc
 RUN touch /run/openrc/softlevel
