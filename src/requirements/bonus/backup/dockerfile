@@ -1,0 +1,13 @@
+FROM alpine:3.14.2
+
+# Update System and Install Tools
+RUN apk update
+
+# Create a backup Folder
+RUN mkdir /backup
+
+# ADD ./tools/run.sh to container
+ADD ./tools/run.sh /usr/bin/run.sh
+RUN chmod +x /usr/bin/run.sh
+
+ENTRYPOINT /usr/bin/run.sh

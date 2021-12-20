@@ -1,0 +1,11 @@
+FROM alpine:3.14.2
+
+# update system and install redis
+RUN apk --update add redis
+
+# ADD 'run.sh' and make it executeable
+ADD     ./tools/run.sh /
+RUN     chmod +x /run.sh
+
+# start redis cache
+ENTRYPOINT [ "./run.sh" ]
