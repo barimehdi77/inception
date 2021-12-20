@@ -15,8 +15,10 @@ then
 	echo "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASS}';" | mysql -u ${MYSQL_ROOT_USER}
 	echo "GRANT ALL PRIVILEGES ON wordpress.* TO '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASS}';" | mysql -u ${MYSQL_ROOT_USER}
 	echo "FLUSH PRIVILEGES;" | mysql -u ${MYSQL_ROOT_USER}
-	echo "ALTER USER '${MYSQL_ROOT_USER}'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASS}'" | mysql -u ${MYSQL_ROOT_USER}
-    echo "FLUSH PRIVILEGES;" | mysql -u ${MYSQL_ROOT_USER} -p'${MYSQL_ROOT_PASS}';
+	# echo "ALTER USER '${MYSQL_ROOT_USER}'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASS}';" | mysql -u ${MYSQL_ROOT_USER} -p'${MYSQL_ROOT_PASS}'
+    mysql -u ${MYSQL_ROOT_USER} -e "ALTER USER '${MYSQL_ROOT_USER}'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASS}';"
+	# echo "FLUSH PRIVILEGES;" | mysql -u ${MYSQL_ROOT_USER} -p'${MYSQL_ROOT_PASS}';
+	# mysql -u ${MYSQL_ROOT_USER} -p'${MYSQL_ROOT_PASS}' -e "FLUSH PRIVILEGES;";
 fi
 sed -i 's/skip-networking/# skip-networking/g' /etc/my.cnf.d/mariadb-server.cnf
 rc-service mariadb restart

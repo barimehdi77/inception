@@ -28,7 +28,6 @@ ADD ./src/object-cache.php /wordpress/wp-content/
 COPY src/wp-config.php /wordpress/wp-config.php
 
 
-
 RUN openrc
 RUN touch /run/openrc/softlevel
 
