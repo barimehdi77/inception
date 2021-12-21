@@ -6,7 +6,7 @@
 #    By: mbari <mbari@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 16:42:57 by mbari             #+#    #+#              #
-#    Updated: 2021/12/20 18:19:35 by mbari            ###   ########.fr        #
+#    Updated: 2021/12/21 21:38:40 by mbari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RESET = \033[0m
 all: credit hosts rvolumes volumes build up
 
 hosts:
-	@sudo sed -i "s/127.0.0.1/127.0.0.1		mbari.42.fr/g" /etc/hosts
+	@sudo sed -i "s/localhost/mbari.42.fr/g" /etc/hosts
 
 ls:
 	@echo "$(GREEN)██████████████████████████ IMAGES ███████████████████████████$(RESET)"
@@ -62,11 +62,7 @@ down:
 
 reload: down rvolumes build up
 
-rm:
-	@echo "$(RED)██████████████████ Removing All Containers ██████████████████$(RESET)"
-	docker-compose -f ./srcs/docker-compose.yml down
-	@echo "$(RED)█████████████████████ Deleting volumes ██████████████████████$(RESET)"
-	sudo rm -rf $(HOME)/data/
+rm: rvolumes down
 	@echo "$(RED)█████████████████████ Remove Everything ██████████████████████$(RESET)"
 	docker system prune -a
 	

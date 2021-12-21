@@ -11,9 +11,6 @@ RUN mkdir -p /var/www/html/
 RUN chown -R nginx:nginx /var/lib/nginx
 RUN chown -R nginx:nginx /var/www/html
 
-# Create SSl certificate
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ${CERTS_NGINX_KEY} -out ${CERTS_NGINX_CRT} -subj "/C=MA/ST=Khouribga/L=Khouribga/O=1337/CN=Inception"
-
 # COPY Files to container
 COPY ./conf/nginx.conf /etc/nginx/
 
