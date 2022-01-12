@@ -60,6 +60,8 @@ You can run:
 
   - `make stop` to stop all containers in the docker-compose
 
+  - `make start` to start all containers in the docker-compose
+
   - `make down` to remove all containers in the docker-compose
 
   - `make reload` to remove, build and run all containers in docker-compose

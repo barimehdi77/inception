@@ -56,6 +56,10 @@ stop:
 	@echo "$(RED)████████████████████ Stoping Containers █████████████████████$(RESET)"
 	docker-compose -f ./srcs/docker-compose.yml stop
 
+start:
+	@echo "$(RED)████████████████████ Starting Containers █████████████████████$(RESET)"
+	docker-compose -f ./srcs/docker-compose.yml start
+
 down:
 	@echo "$(RED)██████████████████ Removing All Containers ██████████████████$(RESET)"
 	docker-compose -f ./srcs/docker-compose.yml down
